@@ -1,0 +1,31 @@
+{
+  "greeting": " Hello",
+  "name": "Abrare",
+  "greetingText": " I have prepared a small surprise for you, kntmna t3jbk <3 :)",
+  "wishText": "May Allah fill your life with light, moments that feel like soft sunrises, and with blessings, just when your heart needs them. You deserve a year woven with joy, kindness, and surprises that make you smile without trying. Thank you for being a steady flame in my life warm, bright, and beautifully rare. May your path be eased,  and your days be wrapped in peace and love. Happy Birthday!",
+  "imagePath": "img/abrarev2.png",
+  "text1": "Today is your birthday Abrare!!! :D",
+  "textInChatBox": "Happy birthday Abrare! I wish you along life full of happiness and success. May all your dreams come true!",
+  "sendButtonLabel": "Send",
+  "text2": "I want to give you a surprise",
+  "text3": "I have thought about it seriously for a long time",
+  "text4": "I realized that I want to do something",
+  "text4Adjective": "special",
+  "text5Entry": "because,",
+  "text5Content": "You are special to me",
+  "smiley": ":)",
+  "bigTextPart1": "Very",
+  "bigTextPart2": "Special",
+  "wishHeading": "Happy Birthday!",
+  "outroText": "I hope you like this little surprise 언니 ❤️✨! I made it with lots of love <3 And i hope you open this website much often",
+  "replayText": "If you like it, you can watch it again by refreshing the page! Or Scroll down for more",
+  "outroSmiley": ":)",
+  "music": "./music/bgMusic.mp3",
+  "fonts": [
+    {
+      "name": "Ma Shan Zheng",
+      "path": "https://fonts.googleapis.com/css?family=Ma+Shan+Zheng&display=swap"
+    }
+  ]
+}
+
