@@ -748,14 +748,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
     
-    // ============================================
-    // AUTO-SAVE EVENT LISTENERS
-    // ============================================
-    
-    /**
-     * Auto-save text on every input/typing
-     * Saves continuously to localStorage as user types
-     */
+
     textarea.addEventListener('input', () => {
       autoSaveText();
     });
