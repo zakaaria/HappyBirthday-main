@@ -145,13 +145,17 @@ canvas {
   text-align: center;
   visibility: hidden;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: visible;
   box-sizing: border-box;
 }
 
 .container div.six {
   top: 15vh;
   z-index: 1;
+  min-height: auto;
+  padding-bottom: clamp(40px, 10vh, 80px);
+  overflow: visible;
 }
 
 .container div.seven,
@@ -172,6 +176,12 @@ canvas {
   width: 100%;
   box-sizing: border-box;
   max-width: 100%;
+  overflow: visible;
+}
+
+.container > div.six {
+  overflow: visible;
+  min-height: auto;
 }
 
 .one {
@@ -268,6 +278,10 @@ canvas {
 
 .six {
   position: relative;
+  width: 100%;
+  overflow: visible;
+  padding-bottom: clamp(30px, 8vh, 60px);
+  margin-bottom: clamp(20px, 5vh, 40px);
 }
 
 .six img {
@@ -375,6 +389,18 @@ canvas {
   fill: #9a90da;
 }
 
+.wish {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin-top: clamp(15px, 4vh, 30px);
+  padding: clamp(10px, 3vw, 20px) clamp(10px, 3vw, 20px);
+  box-sizing: border-box;
+  overflow: visible;
+  white-space: normal;
+  display: block;
+}
+
 .wish-hbd {
   font-size: clamp(2em, 7vw, 3em);
   margin: 0;
@@ -383,16 +409,25 @@ canvas {
   overflow-wrap: break-word;
   padding: 0 10px;
   box-sizing: border-box;
+  white-space: normal;
+  overflow: visible;
+  line-height: 1.2;
 }
 
 .wish h5 {
   font-weight: lighter;
-  font-size: clamp(1.2rem, 4vw, 2rem);
-  margin: 10px 0 0;
+  font-size: clamp(1.1rem, 3.5vw, 1.8rem);
+  margin: clamp(10px, 3vh, 20px) 0 0;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  padding: 0 10px;
+  padding: 0 clamp(10px, 3vw, 20px);
   box-sizing: border-box;
+  white-space: normal;
+  overflow: visible;
+  line-height: 1.5;
+  display: block;
+  width: 100%;
+  max-width: 100%;
 }
 
 .nine p {
@@ -886,6 +921,57 @@ canvas {
 
   .container > div {
     padding: 0 clamp(8px, 2vw, 15px);
+  }
+
+  .container div.six {
+    top: 10vh;
+    padding-bottom: clamp(60px, 15vh, 120px);
+    min-height: auto;
+    overflow: visible;
+    position: relative;
+  }
+
+  .container {
+    overflow-y: visible;
+    min-height: auto;
+  }
+
+  .six {
+    padding-bottom: clamp(40px, 10vh, 80px);
+    margin-bottom: clamp(30px, 8vh, 60px);
+  }
+
+  .six img.lydia-dp,
+  .six .lydia-dp {
+    max-width: min(85%, 100vw - 40px);
+    max-height: 50vh;
+    object-fit: contain;
+    margin-bottom: clamp(10px, 3vh, 20px);
+  }
+
+  .wish {
+    margin-top: clamp(20px, 5vh, 40px);
+    padding: clamp(15px, 4vw, 25px) clamp(10px, 3vw, 20px);
+    width: 100%;
+    max-width: 100%;
+    overflow: visible;
+  }
+
+  .wish-hbd {
+    font-size: clamp(1.8em, 6vw, 2.5em);
+    padding: 0 clamp(8px, 2vw, 15px);
+    line-height: 1.3;
+    margin-bottom: clamp(8px, 2vh, 15px);
+  }
+
+  .wish h5 {
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    margin: clamp(12px, 3vh, 20px) 0 0;
+    padding: 0 clamp(8px, 2vw, 15px);
+    line-height: 1.6;
+    width: 100%;
+    max-width: 100%;
+    display: block;
   }
 
   .text-box .fake-btn {

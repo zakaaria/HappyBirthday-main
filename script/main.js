@@ -171,20 +171,34 @@ const animationTimeline = () => {
       "party"
     )
 
-    .from(".wish h5", 2.8, { opacity: 0, y: 10, skewX: "-15deg" }, "party")
+    .from(".wish h5", 2.8, { 
+      opacity: 0, 
+      y: 5, 
+      skewX: "-15deg",
+      ease: Power2.easeOut
+    }, "party")
 
     .to(".wish", 3, {
-  textShadow: "0 0 20px #ff69b4, 0 0 35px #ff69b4",
-  ease: Power1.easeOut,
-  repeat: 1,
-  yoyo: true
-})
+      textShadow: "0 0 20px #ff69b4, 0 0 35px #ff69b4",
+      ease: Power1.easeOut,
+      repeat: 1,
+      yoyo: true
+    })
 
-// 🎉 Final slow settle before next animation runs
-.to(".wish", 2, {
-  opacity: 1,
-  filter: "brightness(1.2)"
-})
+    // 🎉 Final slow settle before next animation runs
+    .to(".wish", 2, {
+      opacity: 1,
+      filter: "brightness(1.2)",
+      y: 0,
+      clearProps: "transform"
+    })
+    
+    // Ensure wish h5 is fully visible and reset any transforms
+    .to(".wish h5", 0.1, {
+      y: 0,
+      skewX: 0,
+      clearProps: "transform"
+    }, "-=0.5")
 
     .staggerTo(".eight svg", 1.5, {
       visibility: "visible",
