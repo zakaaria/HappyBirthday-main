@@ -252,6 +252,15 @@ function togglePlay(play) {
 // MY OWN CODE FOR QUOTE GENERATOR
 
 const quotes = [
+  "You are strong, brave, and unapologetically yourself and thats rare",
+   "You are the kind of person who makes everything brighter just by being there. I m so lucky to have you",
+  "I admire you more than I probably say your kindness, your strength, and the way you are always yourself.",
+  "Thanks for being my safe place and my favorite person to laugh with",
+  "You are not just my best friend, you are my family",
+  "I admire how real you are—even when you are mad at me for absolutely no reason",
+  "You say what you think, do what you want, and honestly? I love that about you",
+  "We act like siblings, enemies, lovers, and best friends all in one day and I wouldnt change it for anything",
+  "You are strong, brave, and unapologetically yourself—and thats rare",
   "Count your life by smiles, not tears.",
   "May your day be filled with sunshine and joy.",
   "Happiness is not something ready-made. It comes from your actions.",
@@ -260,7 +269,35 @@ const quotes = [
   "Each day is a new beginning. Take a deep breath and start again.",
   "The best is yet to come.",
   "Be the reason someone smiles today.",
-  "Small steps every day lead to big results."
+  "Small steps every day lead to big results.",
+  "And whoever puts their trust in Allah, He will be enough for them. — Quran 65:3",
+  "When the plan fails, remember: Allah s plan never does.",
+  "Tie your effort to the earth, but tie your heart to Allah.",
+  "Indeed, in the remembrance of Allah do hearts find rest.",
+  "Your pain is not ignored; it is recorded, rewarded, and replaced.",
+  "So do not lose hope in the mercy of Allah. — Quran 39:53",
+  "You were not created to break—you were created to rise",
+  "Walk forward. Even slow steps count when they are taken for Allah.",
+  "لَا يُكَلِّفُ ٱللَّهُ نَفْسًا إِلَّا وُسْعَهَا",
+  "وَمَن يَتَوَكَّلْ عَلَى ٱللَّهِ فَهُوَ حَسْبُهُ",
+  "فَإِنَّ مَعَ ٱلْعُسْرِ يُسْرًا",
+  "إِنَّ اللَّهَ مَعَ الصَّابِرِينَ",
+  "وَعَسَىٰ أَن تَكْرَهُوا شَيْئًا وَهُوَ خَيْرٌ لَّكُمْ ۖ",
+  "قلبًا لقلب، أنا معك",
+  "في الصمت كما في الكلام، معك",
+  "قلبك يعرف الطريق، حتى حين تضلّ الخطوات",
+  "Even when you are tired, you are still impressive",
+  "Watching you rise? Kind of my favorite thing",
+  "I trust you with the hard things",
+  "I would bet on you… and enjoy watching you win",
+  "You are so talented, don't forget that!",
+  "The best love is the kind that awakens the soul and makes us reach for more",
+  "You have a heart of gold and a spirit that never quits. You are destined for greatness.",
+  "You are more powerful than you know; you are beautiful just as you are",
+  "I will not let you go into the unknown alone",
+  "Love your passion and energy. Keep following your heart",
+  "Better together.",
+
 ];
 
 function generateQuote() {
