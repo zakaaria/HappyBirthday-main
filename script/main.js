@@ -342,7 +342,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
   // Configuration
   const CONFIG = {
-   targetDate: new Date("January 24, 2026 23:00:00").getTime(),
+    targetDate: new Date("January 24, 2026 23:00:00").getTime(),
     updateInterval: 1000,
     elements: {
       countdown: null,
