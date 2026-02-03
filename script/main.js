@@ -262,36 +262,53 @@ const quotes = [
   "Better together.",
 ];
 
-function generateQuote() {
+// --- CONFIGURATION ---
+// Set the start date to a past date (or today) at 00:00:00
+// Year, Month (0-11), Day
+const startDate = new Date(2026, 1, 3); // Feb 3rd, 2026
+
+function updateQuoteAndTimer() {
   const quoteElement = document.getElementById("quoteText");
-
-  // 1. SET YOUR START DATE HERE (Year, Month-1, Day)
-  // IMPORTANT: Months are 0-indexed (0 = Jan, 1 = Feb, etc.)
-  // Example: Feb 3rd, 2026 would be (2026, 1, 3)
-  const startDate = new Date(2026, 1, 3); 
-
-  // 2. Get the current time
+  const timerElement = document.getElementById("quoteTimer");
   const now = new Date();
 
-  // 3. Calculate the difference in time (in milliseconds)
+  // --- PART 1: SHOW THE CORRECT QUOTE ---
   const timeDiff = now - startDate;
-
-  // 4. Convert milliseconds to days
-  // (1000ms * 60s * 60min * 24hr)
+  
+  // Calculate which day # we are on (Day 0, Day 1, etc.)
   const dayIndex = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-
-  // 5. Ensure the index stays valid (Loops back to the start if days > quotes)
-  // If you want it to STOP at the last quote, let me know.
+  
+  // Loop the index so it doesn't crash if days > quotes
   const safeIndex = dayIndex % quotes.length;
-
-  // 6. Display the quote
-  // We use Math.max(0, ...) to prevent errors if you test with a future date
+  
+  // Update text
   quoteElement.textContent = quotes[Math.max(0, safeIndex)];
+
+  // --- PART 2: THE COUNTDOWN TIMER ---
+  // Calculate the Next Midnight
+  const nextMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+  
+  // Time until midnight in milliseconds
+  const timeToNext = nextMidnight - now;
+
+  // Convert to Hours, Minutes, Seconds
+  const hours = Math.floor((timeToNext / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((timeToNext / (1000 * 60)) % 60);
+  const seconds = Math.floor((timeToNext / 1000) % 60);
+
+  // Add leading zeros (e.g., turn "5" into "05")
+  const h = hours.toString().padStart(2, '0');
+  const m = minutes.toString().padStart(2, '0');
+  const s = seconds.toString().padStart(2, '0');
+
+  timerElement.textContent = `Next quote in: ${h}:${m}:${s}`;
 }
 
-// Run immediately on load
-window.onload = generateQuote;
+// Run once immediately so there is no delay
+updateQuoteAndTimer();
 
+// Update every 1 second (1000 milliseconds)
+setInterval(updateQuoteAndTimer, 1000);
 
 
 //music play button in image section
