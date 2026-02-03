@@ -18,6 +18,40 @@ body {
 * {
   box-sizing: border-box;
 }
+/* Wrapper for the Top Bar */
+.top-notification-bar {
+    width: 100%;
+    background: linear-gradient(90deg, #0f4c81 0%, #1e6091 100%); /* Beautiful Blue Gradient */
+    color: #ffffff; /* White Text */
+    height: 40px; /* Fixed height */
+    overflow: hidden; /* Hides text when it goes off screen */
+    position: relative;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Subtle shadow for depth */
+    display: flex;
+    align-items: center; /* Centers text vertically */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Clean font */
+    font-weight: 600;
+    font-size: 14px;
+    z-index: 1000; /* Ensures it stays on top of other elements */
+}
+
+/* The Scrolling Text Container */
+.scrolling-text {
+    position: absolute;
+    white-space: nowrap; /* Forces text to stay on one line */
+    animation: scroll-left 15s linear infinite; /* The movement magic */
+    padding-left: 100%; /* Starts the text off-screen to the right */
+}
+
+/* The Animation Logic */
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%); /* Moves completely to the left */
+    }
+}
 
 /* Password Gate Styles */
 .password-gate {
