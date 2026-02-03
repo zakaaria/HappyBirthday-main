@@ -254,14 +254,18 @@ function togglePlay(play) {
 document.addEventListener("DOMContentLoaded", function() {
   
   const quotes = [
-    "I would bet on you… and enjoy watching you win",
-    "You are so talented, don't forget that!",
+    "Great things are built brick by brick. No rushing, no stopping. Just building. And I’m right here with you for the heavy lifting ❤️",
+    "You have power over your mind. Realize this, and you will find strength. Breathe. You've got this",
+    "Every flower blooms in its own time. Don't rush the process. Trust your own pace",
+    "I can build a house anywhere. But 'Home' is wherever you are sitting",
     "The best love is the kind that awakens the soul and makes us reach for more",
     "You have a heart of gold and a spirit that never quits. You are destined for greatness.",
     "You are more powerful than you know; you are beautiful just as you are",
     "I will not let you go into the unknown alone",
     "Love your passion and energy. Keep following your heart",
+    "not a motivation quote but Warning: The developer of this site is completely obsessed with the user. System overheating. Send help (or just send a selfie)",
     "Better together.",
+    "You handle the world. I’ll handle you. Go be great and awsome as always today, then come tell me about it.",
   ];
 
   // CONFIGURATION: Start Date (Feb 3, 2026)
