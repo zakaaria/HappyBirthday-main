@@ -264,52 +264,51 @@ document.addEventListener("DOMContentLoaded", function() {
     "Better together.",
   ];
 
-  // CONFIGURATION: Start Date
-  // We keep this fixed so the calculation is stable
+  // CONFIGURATION: Start Date (Feb 3, 2026)
+  // Ensure this matches your desired start date
   const startDate = new Date(2026, 1, 3); 
 
-  // --- SETTINGS FOR TESTING ---
-  const TEST_SPEED_SECONDS = 10; // Change quote every 10 seconds
-  const INTERVAL_MS = TEST_SPEED_SECONDS * 1000;
-
   function updateQuoteAndTimer() {
+    // UPDATED: Now targeting the new unique IDs
     const quoteElement = document.getElementById("dailyQuoteDisplay");
     const timerElement = document.getElementById("dailyQuoteTimer");
     
-    if (!quoteElement || !timerElement) return;
+    if (!quoteElement || !timerElement) {
+      console.error("Still can't find the elements! Check HTML IDs.");
+      return; 
+    }
 
     const now = new Date();
+
+    // --- PART 1: QUOTE ---
     const timeDiff = now - startDate;
-
-    // --- PART 1: QUOTE (Changed to 10-second intervals) ---
-    // Instead of dividing by 24 hours, we divide by 10 seconds
-    const index = Math.floor(timeDiff / INTERVAL_MS);
+    const dayIndex = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
     
-    // Cycle through the list (0, 1, 2, ... then back to 0)
-    const safeIndex = index % quotes.length;
-    quoteElement.textContent = quotes[safeIndex];
+    // Ensure we don't get a negative index if the date is in the future
+    const safeIndex = dayIndex % quotes.length;
+    quoteElement.textContent = quotes[Math.max(0, safeIndex)];
 
-    // --- PART 2: TIMER (Count down to next 10s mark) ---
-    // Calculate how many milliseconds exist into the current 10s block
-    const timeIntoInterval = timeDiff % INTERVAL_MS;
-    
-    // Calculate time remaining
-    const timeToNext = INTERVAL_MS - timeIntoInterval;
+    // --- PART 2: TIMER ---
+    const nextMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+    const timeToNext = nextMidnight - now;
 
-    // Format for display
+    const hours = Math.floor((timeToNext / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((timeToNext / (1000 * 60)) % 60);
     const seconds = Math.floor((timeToNext / 1000) % 60);
+
+    const h = hours.toString().padStart(2, '0');
+    const m = minutes.toString().padStart(2, '0');
     const s = seconds.toString().padStart(2, '0');
 
-    timerElement.textContent = `Next quote in: 00:00:${s}`;
+    timerElement.textContent = `Next quote in: ${h}:${m}:${s}`;
   }
 
   // Run immediately
   updateQuoteAndTimer();
 
-  // Update quickly (every 100ms) so the timer looks smooth
-  setInterval(updateQuoteAndTimer, 100);
+  // Update every second
+  setInterval(updateQuoteAndTimer, 1000);
 });
-
 
 //music play button in image section
 
