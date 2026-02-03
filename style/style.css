@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&display=swap');
 html {
   box-sizing: border-box;
   width: 100%;
@@ -578,97 +579,188 @@ canvas {
   box-sizing: border-box;
 }
 
-/* PHOTO SECTION */
-.friends-photo-wrapper {
-  width: 100%;
-  max-width: 100vw;
-  display: flex;
-  justify-content: center;
-  padding: clamp(20px, 5vw, 30px) clamp(10px, 3vw, 20px);
-  background: linear-gradient(135deg, #020724, #060f35);
-  border-radius: 0px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-  font-family: Arial, sans-serif;
-  margin-top: 0;
-  box-sizing: border-box;
-  overflow-x: hidden;
+/* --- Timeline Section Wrapper --- */
+.timeline-section {
+    background-color: #f0f8ff; /* Light Alice Blue background */
+    padding: 50px 20px;
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
 }
 
-.friends-photo-box {
-  max-width: 1200px;
-  width: 100%;
-  text-align: center;
-  background: rgba(255,255,255,0.1);
-  padding: clamp(25px, 5vw, 40px) clamp(12px, 3vw, 30px);
-  border-radius: 15px;
-  backdrop-filter: blur(10px);
-  color: white;
-  box-sizing: border-box;
+.timeline-header h2 {
+    color: #0f4c81;
+    margin-bottom: 15px;
 }
 
-.friends-photo-box h2 {
-  font-size: clamp(1.3rem, 4vw, 1.8rem);
-  margin-bottom: clamp(15px, 3vw, 20px);
-  text-shadow: 0 0 10px rgba(0,0,0,0.5);
-  line-height: 1.3;
+/* --- The Main Line Container --- */
+.timeline-container {
+    position: relative;
+    max-width: 800px;
+    margin: 40px auto;
+    padding-left: 20px;
 }
 
-.friends-images {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(8px, 2vw, 15px);
-  margin-bottom: 20px;
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
+/* The Vertical Line */
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 120px;
+    width: 4px;
+    background: #0f4c81; /* Blue Line */
+    border-radius: 2px;
 }
 
-.friend-img {
-  width: 100%;
-  aspect-ratio: 651 / 1156;
-  object-fit: cover;
-  border-radius: clamp(8px, 2vw, 15px);
-  border: 2px solid white;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
-  transition: transform 0.3s, box-shadow 0.3s;
+/* --- Individual Event Item --- */
+.timeline-item {
+    display: flex;
+    margin-bottom: 60px;
+    position: relative;
+    align-items: flex-start; /* Aligns date and content at the top */
 }
 
-.friend-img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 25px rgba(255,255,255,0.5);
+/* 1. The Date (Left side) */
+.timeline-date {
+    width: 100px;
+    text-align: right;
+    padding-right: 30px;
+    font-weight: bold;
+    color: #0f4c81;
+    font-size: 1.1rem;
+    /* Removed padding-top since the dot is gone */
+}
+/* --- The Emotional Story Text --- */
+.timeline-content p {
+    font-family: 'Lora', serif; /* The new storybook font */
+    font-size: 1.1rem;          /* Slightly larger for reading */
+    line-height: 1.8;           /* More breathing room between lines */
+    color: #4a4a4a;             /* Softer grey (stark black is too harsh) */
+    
+    /* The "Love Note" Styling */
+    background: #fff0f3;        /* A very subtle, romantic pink background */
+    padding: 20px;              /* Space inside the box */
+    border-left: 4px solid #ff4d6d; /* A pink accent line on the left */
+    border-radius: 0 10px 10px 0;   /* Rounded corners on the right */
+    
+    margin-top: 15px;
+    margin-bottom: 20px;
+    font-style: italic;         /* Makes it feel like a handwritten memory */
+    box-shadow: inset 0 2px 10px rgba(255, 77, 109, 0.05); /* Inner glow */
 }
 
-.friends-photo-box p {
-  font-size: clamp(0.95rem, 3.5vw, 1.2rem);
-  line-height: 1.6;
-  text-shadow: 0 1px 5px rgba(0,0,0,0.3);
-  padding: 0 5px;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  box-sizing: border-box;
+/* Optional: Highlight specific words if you wrap them in <strong> tags later */
+.timeline-content p strong {
+    color: #d63384; /* Deep pink for important words */
+    font-weight: 600;
 }
 
+.timeline-marker {
+    display: flex;             /* Brings it back (was hidden) */
+    justify-content: center;   /* Centers the heart inside */
+    align-items: center;
+    position: absolute;
+    left: 107px;               /* Perfectly aligned over the line */
+    width: 30px;
+    height: 30px;
+    background-color: #f0f8ff; /* Matches background color so line looks "cut" */
+    z-index: 2;                /* Sits on top of the blue line */
+    font-size: 24px;           /* Size of the heart */
+}
+
+/* This puts the heart inside the marker div */
+.timeline-marker::before {
+    content: '❤️';            /* The Heart Emoji */
+    display: block;
+    line-height: 1;
+}
+
+/* 3. The Content (Right side) */
+.timeline-content {
+    background: white;
+    padding: 20px;
+    margin-left: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    flex: 1;
+    text-align: left;
+}
+
+.timeline-content h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+/* --- Fancy Image & Video Grid --- */
+.timeline-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* UPDATED: Now targets both IMG and VIDEO tags */
+.timeline-gallery img, 
+.timeline-gallery video {
+    width: 100%;       
+    height: 380px;     /* Forces video to match the exact height of images */
+    object-fit: cover; /* Crucial: Zooms the video to fill the box without stretching */
+    
+    /* The "Fancy" Styling */
+    border-radius: 15px; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2); 
+    transition: all 0.3s ease; 
+    filter: brightness(0.95); 
+}
+
+/* Hover Effect for both */
+.timeline-gallery img:hover,
+.timeline-gallery video:hover {
+    transform: translateY(-5px) scale(1.02); 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3); 
+    filter: brightness(1.1); 
+    z-index: 2;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 600px) {
+    .timeline-container::before { left: 20px; }
+    .timeline-item { flex-direction: column; }
+    .timeline-date { text-align: left; margin-bottom: 10px; margin-left: 35px; }
+    
+    /* UPDATED: Aligns the heart on mobile */
+    .timeline-marker { left: 7px; } 
+    
+    .timeline-content { margin-left: 35px; }
+}
+
+/* --- Fancy Music Button --- */
 .music-btn {
-  background: linear-gradient(135deg, #ff7eb3 0%, #ff758c 100%);
-  border: none;
-  color: white;
-  padding: clamp(10px, 2.5vw, 12px) clamp(20px, 5vw, 30px);
-  font-size: clamp(1rem, 2.5vw, 1.1rem);
-  border-radius: 30px;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(255,118,140,0.4);
-  transition: transform 0.3s, box-shadow 0.3s;
-  margin: 15px 0;
+    background: linear-gradient(135deg, #0f4c81 0%, #2a6f97 100%); /* Matches your theme */
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: 'Segoe UI', sans-serif;
+    border-radius: 50px; /* Makes it perfectly round (Pill shape) */
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(15, 76, 129, 0.3); /* Soft blue shadow */
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* Space between emoji and text */
+    margin-bottom: 20px;
 }
 
 .music-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255,118,140,0.6);
+    transform: translateY(-2px) scale(1.05); /* Lifts up slightly */
+    box-shadow: 0 8px 20px rgba(15, 76, 129, 0.5); /* Shadow glows */
+    background: linear-gradient(135deg, #1e6091 0%, #0f4c81 100%); /* Slight color shift */
 }
 
 .music-btn:active {
-  transform: translateY(0);
-  box-shadow: 0 4px 15px rgba(255,118,140,0.4);
+    transform: scale(0.95); /* Clicks down */
 }
 
 /* NOTEBOOK SECTION */
