@@ -251,64 +251,64 @@ function togglePlay(play) {
 
 // MY OWN CODE FOR QUOTE GENERATOR
 
-const quotes = [
-  "I would bet on you… and enjoy watching you win",
-  "You are so talented, don't forget that!",
-  "The best love is the kind that awakens the soul and makes us reach for more",
-  "You have a heart of gold and a spirit that never quits. You are destined for greatness.",
-  "You are more powerful than you know; you are beautiful just as you are",
-  "I will not let you go into the unknown alone",
-  "Love your passion and energy. Keep following your heart",
-  "Better together.",
-];
-
-// --- CONFIGURATION ---
-// Set the start date to a past date (or today) at 00:00:00
-// Year, Month (0-11), Day
-const startDate = new Date(2026, 1, 3); // Feb 3rd, 2026
-
-function updateQuoteAndTimer() {
-  const quoteElement = document.getElementById("quoteText");
-  const timerElement = document.getElementById("quoteTimer");
-  const now = new Date();
-
-  // --- PART 1: SHOW THE CORRECT QUOTE ---
-  const timeDiff = now - startDate;
+document.addEventListener("DOMContentLoaded", function() {
   
-  // Calculate which day # we are on (Day 0, Day 1, etc.)
-  const dayIndex = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-  
-  // Loop the index so it doesn't crash if days > quotes
-  const safeIndex = dayIndex % quotes.length;
-  
-  // Update text
-  quoteElement.textContent = quotes[Math.max(0, safeIndex)];
+  const quotes = [
+    "I would bet on you… and enjoy watching you win",
+    "You are so talented, don't forget that!",
+    "The best love is the kind that awakens the soul and makes us reach for more",
+    "You have a heart of gold and a spirit that never quits. You are destined for greatness.",
+    "You are more powerful than you know; you are beautiful just as you are",
+    "I will not let you go into the unknown alone",
+    "Love your passion and energy. Keep following your heart",
+    "Better together.",
+  ];
 
-  // --- PART 2: THE COUNTDOWN TIMER ---
-  // Calculate the Next Midnight
-  const nextMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
-  
-  // Time until midnight in milliseconds
-  const timeToNext = nextMidnight - now;
+  // CONFIGURATION: Start Date (Feb 3, 2026)
+  // Ensure this matches your desired start date
+  const startDate = new Date(2026, 1, 3); 
 
-  // Convert to Hours, Minutes, Seconds
-  const hours = Math.floor((timeToNext / (1000 * 60 * 60)) % 24);
-  const minutes = Math.floor((timeToNext / (1000 * 60)) % 60);
-  const seconds = Math.floor((timeToNext / 1000) % 60);
+  function updateQuoteAndTimer() {
+    // UPDATED: Now targeting the new unique IDs
+    const quoteElement = document.getElementById("dailyQuoteDisplay");
+    const timerElement = document.getElementById("dailyQuoteTimer");
+    
+    if (!quoteElement || !timerElement) {
+      console.error("Still can't find the elements! Check HTML IDs.");
+      return; 
+    }
 
-  // Add leading zeros (e.g., turn "5" into "05")
-  const h = hours.toString().padStart(2, '0');
-  const m = minutes.toString().padStart(2, '0');
-  const s = seconds.toString().padStart(2, '0');
+    const now = new Date();
 
-  timerElement.textContent = `Next quote in: ${h}:${m}:${s}`;
-}
+    // --- PART 1: QUOTE ---
+    const timeDiff = now - startDate;
+    const dayIndex = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+    
+    // Ensure we don't get a negative index if the date is in the future
+    const safeIndex = dayIndex % quotes.length;
+    quoteElement.textContent = quotes[Math.max(0, safeIndex)];
 
-// Run once immediately so there is no delay
-updateQuoteAndTimer();
+    // --- PART 2: TIMER ---
+    const nextMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+    const timeToNext = nextMidnight - now;
 
-// Update every 1 second (1000 milliseconds)
-setInterval(updateQuoteAndTimer, 1000);
+    const hours = Math.floor((timeToNext / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((timeToNext / (1000 * 60)) % 60);
+    const seconds = Math.floor((timeToNext / 1000) % 60);
+
+    const h = hours.toString().padStart(2, '0');
+    const m = minutes.toString().padStart(2, '0');
+    const s = seconds.toString().padStart(2, '0');
+
+    timerElement.textContent = `Next quote in: ${h}:${m}:${s}`;
+  }
+
+  // Run immediately
+  updateQuoteAndTimer();
+
+  // Update every second
+  setInterval(updateQuoteAndTimer, 1000);
+});
 
 
 //music play button in image section
