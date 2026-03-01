@@ -260,7 +260,7 @@ document.addEventListener("DOMContentLoaded", function() {
     "The best love is the kind that awakens the soul and makes us reach for more",
     "You have a heart of gold and a spirit that never quits. You are destined for greatness.",
     "You are more powerful than you know; you are beautiful just as you are",
-    "I will not let you go into the unknown alone",
+    "li fiha khair ghadi ydirha rbi, twkli 3la Allah, w ghadi yduz kulchi bikher inshaAllah ",
     "Love your passion and energy. Keep following your heart",
     "Better together.",
     "I know you are going through a hard time, 3aref bli bzf dyal l7wayj mjmu3in 3lik, wlkin i believe in you, you will be just fine, You can do it, Remember how strong you are ❤️",
